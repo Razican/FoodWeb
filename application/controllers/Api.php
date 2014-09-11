@@ -4,7 +4,7 @@ class Api extends CI_Controller {
 
 	public function index()
 	{
-		$data['response'] = "This is the API test";
+		$data['response'] = json_encode(array("message" => "Welcome to the API!"));
 		$this->load->view('api', $data);
 		// TODO
 	}
