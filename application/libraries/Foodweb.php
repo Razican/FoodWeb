@@ -4,11 +4,13 @@ class Foodweb {
 
 	public function check_login($username, $password)
 	{
-		$this->db->where('username', $username);
-		$this->db->where('password', $password);
-		$this->db->from('users');
+		$CI =& get_instance();
 
-		if ($this->db->count_all__results())
+		$CI->db->where('username', $username);
+		$CI->db->where('password', $password);
+		$CI->db->from('users');
+
+		if ($CI->db->count_all_results())
 			return NULL;
 		else
 			return "Incorrect username or password";
