@@ -4,7 +4,7 @@ class Api extends CI_Controller {
 
 	public function index()
 	{
-		$data['response'] = json_encode(array("message" => "Welcome to the API!"));
+		$data['response'] = json_encode(array("message" => "Welcome ".$this->input->post('name')."!"));
 		$this->load->view('api', $data);
 		// TODO
 	}
@@ -16,7 +16,12 @@ class Api extends CI_Controller {
 
 	public function login()
 	{
-		// TODO
+		if (isnull($error = $this->foodweb->checkLogin()))
+			$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+		else
+			$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+
+		$this->load->view('api', $data);
 	}
 
 	public function search()
