@@ -11,8 +11,15 @@ class Foodweb {
 		$CI->db->from('users');
 
 		if ($CI->db->count_all_results())
+		{
 			return NULL;
+		}
 		else
+		{
 			return "Incorrect username or password";
+		}
 	}
 }
+
+/* End of file Foodweb.php */
+/* Location: ./application/libraries/Foodweb.php */

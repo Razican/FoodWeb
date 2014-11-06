@@ -19,9 +19,13 @@ class Api extends CI_Controller {
 		if (is_null($error = $this->foodweb->check_login(
 					$this->input->post('username'),
 					$this->input->post('password'))))
+		{
 			$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+		}
 		else
+		{
 			$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+		}
 
 		$this->load->view('api', $data);
 	}
