@@ -1,0 +1,9 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['overal.title']			= 'Food Finder';
+$lang['overal.register']		= 'Register';
+$lang['overal.about']			= 'About us';
+$lang['overal.contact']			= 'Contact us';
+
+/* End of file overal_lang.php */
+/* Location: ./application/language/english/overal_lang.php */
