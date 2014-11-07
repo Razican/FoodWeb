@@ -13,5 +13,20 @@ $lang['register.diabetes']		= 'diabetes';
 $lang['register.vegetables']	= 'vegetables';
 $lang['register.milk']			= 'milk';
 
+// Examples
+$lang['register.name_eg']		= 'Example: Peio';
+$lang['register.lastname_eg']	= 'Example: Gomez';
+$lang['register.email_eg']		= 'Example: a@gmail.com';
+$lang['register.username_eg']	= 'Example: peio';
+$lang['register.password_eg']	= 'Example: 1234';
+$lang['register.passconf_eg']	= 'Example: 1234';
+
+// Errors
+$lang['register.error_pass']	= 'Paswords don\'t match';
+$lang['register.error_user']	= 'Username already exists.';
+$lang['register.error_email_1']	= 'Incorrect email.';
+$lang['register.error_email_2']	= 'Email exists';
+$lang['register.error_empty']	= 'You must fill all the fields.';
+
 /* End of file register_lang.php */
 /* Location: ./application/language/english/register_lang.php */
