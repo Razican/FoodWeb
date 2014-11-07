@@ -54,6 +54,15 @@ h2
 	text-shadow: 0.1em 0.1em 0.2em #000000;
 }
 
+section.text
+{
+	border-radius: 0.8em;
+	margin: 0 2em 1em;
+	border: 1px solid #07303D;
+	background-color: #98E2FA;
+	padding: 1em;
+}
+
 section.error
 {
 	border-radius: 0.3em;
@@ -196,9 +205,18 @@ nav ul
 nav ul li
 {
 	display: inline-block;
-	width: 32%;
 	text-align: center;
 	padding: 1em 0px;
+}
+
+nav:not(.binary) ul li
+{
+	width: 32%;
+}
+
+nav.binary ul li
+{
+	width: 49%;
 }
 
 nav ul li:not(:last-of-type)

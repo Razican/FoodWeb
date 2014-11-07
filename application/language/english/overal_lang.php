@@ -5,6 +5,7 @@ $lang['overal.register']		= 'Register';
 $lang['overal.login']			= 'Login';
 $lang['overal.about']			= 'About us';
 $lang['overal.contact']			= 'Contact us';
+$lang['overal.search']			= 'Search';
 $lang['overal.error']			= 'Error';
 
 /* End of file overal_lang.php */
