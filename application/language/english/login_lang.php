@@ -6,6 +6,7 @@ $lang['login.password']			= 'Password';
 $lang['login.username_eg']		= 'Example: user';
 $lang['login.password_eg']		= 'Example: 1234';
 $lang['login.reset_password']	= 'Forgot user/password?';
+$lang['login.error']			= 'Incorrect user/password.';
 
 
 /* End of file login_lang.php */

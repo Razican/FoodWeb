@@ -16,18 +16,27 @@ class Api extends CI_Controller {
 
 	public function login()
 	{
-		if (is_null($error = $this->foodweb->check_login(
-					$this->input->post('username'),
-					$this->input->post('password'))))
+		if ($this->input->method() === 'post')
 		{
-			$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+			$this->lang->load('login');
+
+			if (is_null($error = $this->foodweb->check_login(
+						$this->input->post('username'),
+						$this->input->post('password'))))
+			{
+				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+			}
+			else
+			{
+				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+			}
+
+			$this->load->view('api', $data);
 		}
 		else
 		{
-			$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+			redirect('/');
 		}
-
-		$this->load->view('api', $data);
 	}
 
 	public function search()

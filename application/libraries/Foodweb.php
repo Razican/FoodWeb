@@ -16,7 +16,7 @@ class Foodweb {
 		}
 		else
 		{
-			return "Incorrect username or password";
+			return lang('login.error');
 		}
 	}
 }

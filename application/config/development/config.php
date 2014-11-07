@@ -395,7 +395,7 @@ $config['cookie_httponly'] 	= FALSE;
 | (usually \n) and Windows (\r\n).
 |
 */
-$config['standardize_newlines'] = FALSE;
+$config['standardize_newlines'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -474,7 +474,7 @@ $config['minify_output'] = TRUE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-$config['time_reference'] = 'UTC';
+$config['time_reference'] = 'Europe/Helsinki';
 
 
 /*
