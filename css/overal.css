@@ -1,3 +1,28 @@
+@media (max-width: 520px)
+{
+	section.main
+	{
+		margin: 0px;
+	}
+}
+
+@media (min-width: 521px)
+{
+	section.main
+	{
+		margin: 3em 5em;
+	}
+}
+
+@media (min-width: 651px)
+{
+	section.main
+	{
+		margin: 3em auto;
+		width: 500px;
+	}
+}
+
 body
 {
 	margin: auto;
@@ -7,20 +32,19 @@ body
 section.main
 {
 	border-radius: 0.8em;
-	margin: 3em 5em;
 	border: 1px solid #000000;
-	background-color: #66C2E0;
-	min-width: 275px;
+	background: linear-gradient(#186078, #66C2E0);
+	min-width: 340px;
 }
 
 section.error
 {
 	border-radius: 0.3em;
-	margin: 0px 3em;
+	margin: 0px 3em 1em;
 	border: 1px solid #D11919;
 	background-color: #E68080;
 	text-align: center;
-	padding: 2em;
+	padding: 1.5em;
 	font-weight: bold;
 	font-size: 1.2em;
 }
@@ -33,15 +57,17 @@ section.error img
 
 h2
 {
+	color: #FFFFFF;
 	font-family: sans-serif;
-	font-size: 2em;
+	font-size: 2.5em;
 	text-align:center;
-	margin: 1.5em;
+	margin: 1.3em;
+	text-shadow: 0.1em 0.1em 0.2em #000000;
 }
 
 a
 {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #111111;
 	font-family: sans-serif;
 }
@@ -50,23 +76,110 @@ form
 {
 	text-align: center;
 }
-form input
+
+form label
+{
+	font-family: sans-serif;
+}
+
+form input:not([type="checkbox"])
 {
 	margin: 1em 1em;
 }
 
-form input[type="submit"]
+#milk
 {
-	border-radius: 0.3em;
-	padding: 0.5em 0.5em;
+	margin-left: 2em;
 }
 
-form input[type="submit"].login
+label[for="gluten"]
 {
-	background-image: url('../img/key.png');
-	background-repeat: no-repeat;
-	background-position: left;
-	padding-left: 24px;
+	position: relative;
+	left: -0.5em;
+}
+#gluten
+{
+	margin-left: 2em;
+	position: relative;
+	left: -0.5em;
+}
+
+#diabetes
+{
+	margin-left: 4em;
+}
+
+#vegetables
+{
+	margin-left: 7em;
+}
+
+/* white button*/
+.white
+{
+	background-color: #FFFFFF;
+	color: #606060;
+	border: solid 1px #B7B7B7;
+	background: linear-gradient(#FFFFFF, #EDEDED);
+}
+
+.white:hover
+{
+	background: linear-gradient(#FFFFFF, #DCDCDC);
+}
+
+.white:active
+{
+	color: #999999;
+	background: linear-gradient(#EDEDED, #FFFFFF);
+}
+
+form button img
+{
+	vertical-align: middle;
+}
+
+form button
+{
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 2em 1em;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .3em 1em .35em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	border-radius: 0.5em;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+form button:hover
+{
+	text-decoration: none;
+}
+
+form button:active
+{
+	position: relative;
+	top: 1px;
+}
+
+nav
+{
+	background-color: #117B9E;
+	border-radius: 0 0 0.7em 0.7em;
+}
+
+nav a
+{
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: bold;
+	text-shadow: 0.1em 0.1em 0.2em #000000;
 }
 
 nav ul

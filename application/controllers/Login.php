@@ -7,13 +7,29 @@ class Login extends CI_Controller {
 		$this->load->driver('session');
 		$this->lang->load('login');
 
-		if ( ! is_null($this->session->userdata('username')))
+		if ($this->uri->segment(1))
+		{
+			redirect('/', 'location', 301);
+		}
+		elseif ( ! is_null($this->session->userdata('username')))
 		{
 			redirect('search');
 		}
 		elseif ($this->input->method() === 'post')
 		{
-			if (is_null($error = $this->foodweb->check_login(
+			if (empty($this->input->post('username')) OR
+				empty($this->input->post('password')))
+			{
+				$this->session->set_flashdata('error_msg', lang('login.error_empty'));
+
+				if ( ! empty($this->input->post('username')))
+				{
+					$this->session->set_flashdata('username', $this->input->post('username'));
+				}
+
+				redirect('/');
+			}
+			elseif (is_null($error = $this->foodweb->check_login(
 						$this->input->post('username'),
 						sha1($this->input->post('password')))))
 			{
@@ -31,6 +47,7 @@ class Login extends CI_Controller {
 		else
 		{
 			$head['title'] = lang('login.login');
+
 			$login['error_msg'] = $this->session->flashdata('error_msg');
 			$login['username'] = $this->session->flashdata('username');
 

@@ -5,5 +5,6 @@
 		<title><?php echo lang('overal.title').' - '.$title; ?></title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo site_url('css/overal.css'); ?>">
+		<link rel="icon" href="<?php echo site_url('img/favicon.png'); ?>">
 	</head>
 	<body>

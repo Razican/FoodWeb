@@ -16,7 +16,7 @@ class Foodweb {
 		}
 		else
 		{
-			return lang('login.error');
+			return lang('login.error_incorrect');
 		}
 	}
 }
