@@ -7,6 +7,7 @@ $lang['overal.about']			= 'About us';
 $lang['overal.contact']			= 'Contact us';
 $lang['overal.search']			= 'Search';
 $lang['overal.error']			= 'Error';
+$lang['overal.logout']			= 'Logout';
 
 /* End of file overal_lang.php */
 /* Location: ./application/language/english/overal_lang.php */

@@ -207,16 +207,7 @@ nav ul li
 	display: inline-block;
 	text-align: center;
 	padding: 1em 0px;
-}
-
-nav:not(.binary) ul li
-{
 	width: 32%;
-}
-
-nav.binary ul li
-{
-	width: 49%;
 }
 
 nav ul li:not(:last-of-type)
