@@ -17,7 +17,23 @@ class Reset_password extends CI_Controller {
 		}
 		elseif ($this->input->method() === 'post')
 		{
-			// TODO
+			if (is_null($error = $this->foodweb->reset(
+					$this->input->post('email'),
+					$this->input->post('username') === 'on',
+					$this->input->post('password') === 'on')))
+			{
+				redirect('/');
+			}
+			else
+			{
+				$this->session->set_flashdata('error_msg', $error);
+
+				$this->session->set_flashdata('email', $this->input->post('email'));
+				$this->session->set_flashdata('username', $this->input->post('username') === 'on');
+				$this->session->set_flashdata('password', $this->input->post('password') === 'on');
+
+				redirect('reset_password');
+			}
 		}
 		else
 		{

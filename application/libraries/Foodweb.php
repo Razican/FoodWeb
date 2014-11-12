@@ -22,7 +22,12 @@ class Foodweb {
 
 	public function register($name, $lastname, $email, $username, $password, $passconf, $health_issues)
 	{
-		if ($password !== $passconf)
+		if (empty($name) OR empty($lastname) OR empty($email) OR
+			empty($username) OR empty($password) OR empty($passconf))
+		{
+			return lang('register.error_empty');
+		}
+		elseif ($password !== $passconf)
 		{
 			return lang('register.error_pass');
 		}
@@ -49,6 +54,8 @@ class Foodweb {
 			return lang('register.error_email_2');
 		}
 
+		// TODO confirmation email
+
 		$data = array(
 			'name' => $name,
 			'lastname' => $lastname,
@@ -60,6 +67,28 @@ class Foodweb {
 		$CI->db->insert('users', $data);
 
 		return NULL;
+	}
+
+	public function reset($email, $username, $password)
+	{
+		if (empty($email))
+		{
+			return lang('reset.error_no_email');
+		}
+		elseif ( ! $username && ! $password)
+		{
+			return lang('reset.error_no_select');
+		}
+		elseif ( ! filter_var($email, FILTER_VALIDATE_EMAIL))
+		{
+			return lang('reset.error_email');
+		}
+		else
+		{
+			// TODO
+
+			return NULL;
+		}
 	}
 }
 

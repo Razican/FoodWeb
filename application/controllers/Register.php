@@ -17,58 +17,7 @@ class Register extends CI_Controller {
 		}
 		elseif ($this->input->method() === 'post')
 		{
-			if (empty($this->input->post('name')) OR
-				empty($this->input->post('lastname')) OR
-				empty($this->input->post('email')) OR
-				empty($this->input->post('username')) OR
-				empty($this->input->post('password')) OR
-				empty($this->input->post('passconf')))
-			{
-				$this->session->set_flashdata('error_msg', lang('register.error_empty'));
-
-				if ( ! empty($this->input->post('name')))
-				{
-					$this->session->set_flashdata('name', $this->input->post('name'));
-				}
-
-				if ( ! empty($this->input->post('lastname')))
-				{
-					$this->session->set_flashdata('lastname', $this->input->post('lastname'));
-				}
-
-				if ( ! empty($this->input->post('email')))
-				{
-					$this->session->set_flashdata('email', $this->input->post('email'));
-				}
-
-				if ( ! empty($this->input->post('username')))
-				{
-					$this->session->set_flashdata('username', $this->input->post('username'));
-				}
-
-				if ($this->input->post('gluten') === "on")
-				{
-					$this->session->set_flashdata('gluten', 'on');
-				}
-
-				if ($this->input->post('diabetes') === "on")
-				{
-					$this->session->set_flashdata('diabetes', 'on');
-				}
-
-				if ($this->input->post('vegetables') === "on")
-				{
-					$this->session->set_flashdata('vegetables', 'on');
-				}
-
-				if ($this->input->post('milk') === "on")
-				{
-					$this->session->set_flashdata('milk', 'on');
-				}
-
-				redirect('register');
-			}
-			elseif (is_null($error = $this->foodweb->register(
+			if (is_null($error = $this->foodweb->register(
 						$this->input->post('name'),
 						$this->input->post('lastname'),
 						$this->input->post('email'),
@@ -86,30 +35,16 @@ class Register extends CI_Controller {
 			else
 			{
 				$this->session->set_flashdata('error_msg', $error);
+
 				$this->session->set_flashdata('name', $this->input->post('name'));
 				$this->session->set_flashdata('lastname', $this->input->post('lastname'));
 				$this->session->set_flashdata('email', $this->input->post('email'));
 				$this->session->set_flashdata('username', $this->input->post('username'));
 
-				if ($this->input->post('gluten') === "on")
-				{
-					$this->session->set_flashdata('gluten', 'on');
-				}
-
-				if ($this->input->post('diabetes') === "on")
-				{
-					$this->session->set_flashdata('diabetes', 'on');
-				}
-
-				if ($this->input->post('vegetables') === "on")
-				{
-					$this->session->set_flashdata('vegetables', 'on');
-				}
-
-				if ($this->input->post('milk') === "on")
-				{
-					$this->session->set_flashdata('milk', 'on');
-				}
+				$this->session->set_flashdata('gluten', $this->input->post('gluten') === "on");
+				$this->session->set_flashdata('diabetes', $this->input->post('diabetes') === "on");
+				$this->session->set_flashdata('vegetables', $this->input->post('vegetables') === "on");
+				$this->session->set_flashdata('milk', $this->input->post('milk') === "on");
 
 				redirect('register');
 			}
