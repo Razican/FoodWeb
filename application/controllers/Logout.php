@@ -8,7 +8,7 @@ class Logout extends CI_Controller {
 
 		if ($this->uri->segment(2))
 		{
-			redirect('/', 'location', 301);
+			redirect('logout', 'location', 301);
 		}
 
 		$this->session->sess_destroy();

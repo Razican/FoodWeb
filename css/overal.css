@@ -81,6 +81,21 @@ section.error img
 	margin-right: 0.8em;
 }
 
+section.reset
+{
+	text-align: center;
+}
+
+section.reset p
+{
+	margin: 2em;
+}
+
+section.reset input[type="checkbox"]
+{
+	margin-left: 2em;
+}
+
 /* Form */
 form label
 {
@@ -149,6 +164,7 @@ form div.submit
 form button img
 {
 	vertical-align: middle;
+	margin-right: 0.7em;
 }
 
 form button
