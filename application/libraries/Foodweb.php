@@ -85,9 +85,69 @@ class Foodweb {
 		}
 		else
 		{
-			// TODO
+			$CI =& get_instance();
 
-			return NULL;
+			if ($username)
+			{
+				$this->db->select('username');
+			}
+
+			$this->db->select('id');
+			$this->db->where('email', $email);
+
+			$query = $this->db->get('users');
+
+			if ($query->num_rows() === 0)
+			{
+				return lang('reset.error_email');
+			}
+			else
+			{
+				foreach ($query->result() as $user);
+
+				if ($password)
+				{
+					$CI->load->helper('string');
+
+					$new_pass = random_string();
+
+					$CI->db->where('email', $email);
+					$CI->db->set('password', sha1($new_pass));
+					$CI->db->update('users');
+				}
+
+				if ($username && $password)
+				{
+					$email_text = sprintf(lang('reset.email_both'), $user->username, $new_pass);
+				}
+				elseif ($username)
+				{
+					$email_text = sprintf(lang('reset.email_username'), $user->username);
+				}
+				else
+				{
+					$email_text = sprintf(lang('reset.email_password'), $new_pass);
+				}
+
+				$head['title'] = lang('reset.reset');
+				$email['body'] = $email_text;
+
+				$email_head = $this->load->view('header', $head, TRUE);
+				$email_body = $this->load->view('email', $email, TRUE);
+				$email_footer = $this->load->view('header', '', TRUE);
+
+				$this->load->library('email');
+
+				$this->email->from('admin@razican.com', 'Food Finder');
+				$this->email->to($email);
+
+				$this->email->subject(lang('reset.reset'));
+				$this->email->message($email_head.$email_body.$email_footer);
+
+				$this->email->send();
+
+				return NULL;
+			}
 		}
 	}
 }
