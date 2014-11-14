@@ -69,18 +69,19 @@ class Foodweb {
 		$CI->db->insert('users', $data);
 
 		$head['title'] = lang('register.register');
-		$email['body'] = sprintf(lang('register.email_text'), $name, $password, site_url('register/validate/'.$validation));
+		$email_body['title'] = $head['title'];
+		$email_body['body'] = sprintf(lang('register.email_text'), $name, $password, site_url('register/validate/'.$validation));
 
 		$email_head = $CI->load->view('header', $head, TRUE);
-		$email_body = $CI->load->view('email', $email, TRUE);
-		$email_footer = $CI->load->view('header', '', TRUE);
+		$email_body = $CI->load->view('email', $email_body, TRUE);
+		$email_footer = $CI->load->view('footer', '', TRUE);
 
 		$CI->load->library('email');
 
 		$CI->email->from('admin@razican.com', 'Food Finder');
 		$CI->email->to($email);
 
-		$CI->email->subject(lang('reset.reset'));
+		$CI->email->subject(lang('register.register'));
 		$CI->email->message($email_head.$email_body.$email_footer);
 
 		return $CI->email->send() ? NULL : lang('register.error_email_1');
@@ -147,11 +148,12 @@ class Foodweb {
 				}
 
 				$head['title'] = lang('reset.reset');
+				$email['title'] = $head['title'];
 				$email['body'] = $email_text;
 
 				$email_head = $CI->load->view('header', $head, TRUE);
 				$email_body = $CI->load->view('email', $email, TRUE);
-				$email_footer = $CI->load->view('header', '', TRUE);
+				$email_footer = $CI->load->view('footer', '', TRUE);
 
 				$CI->load->library('email');
 
