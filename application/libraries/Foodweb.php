@@ -192,22 +192,22 @@ class Foodweb {
 
 		$health_issues = $CI->user->get('health_issues');
 
-		if (isset($health_issues['gluten']))
+		if ($health_issues['gluten'])
 		{
 			$CI->db->where('gluten', 1);
 		}
 
-		if (isset($health_issues['diabetes']))
+		if ($health_issues['diabetes'])
 		{
 			$CI->db->where('diabetes', 1);
 		}
 
-		if (isset($health_issues['vegetables']))
+		if ($health_issues['vegetables'])
 		{
 			$CI->db->where('vegetables', 1);
 		}
 
-		if (isset($health_issues['milk']))
+		if ($health_issues['milk'])
 		{
 			$CI->db->where('milk', 1);
 		}
