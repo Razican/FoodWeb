@@ -44,13 +44,37 @@
 			</div>
 
 			<div class="input">
-				<p><?php echo lang('search.between'); ?> <input type="number" min="0" max="100" step="0.25" value="0">€ <?php echo lang('search.and'); ?> <input type="number" min="0" max="100" step="0.25" value="99.99">€</p>
+				<p><?php echo lang('search.between'); ?> <input type="number" min="0" max="100" step="0.01" value="0">€ <?php echo lang('search.and'); ?> <input type="number" min="0" max="100" step="0.01" value="99.99">€</p>
 			</div>
 		</div>
 		<div class="submit">
 			<button class="white"><img src="<?php echo site_url('img/search.png'); ?>"><br><?php echo lang('search.search'); ?></button>
+			<img id="loading" title="<?php echo lang('search.loading'); ?>" alt="<?php echo lang('search.loading'); ?>" src="<?php echo site_url('img/loading.gif'); ?>">
 		</div>
 	</form>
+
+	<section class="results">
+		<div class="table">
+			<div class="title row">
+				<div><?php echo lang('search.name'); ?></div>
+				<div><?php echo lang('search.type'); ?></div>
+				<div><?php echo lang('search.brand'); ?></div>
+				<div><?php echo lang('search.price'); ?></div>
+			</div>
+			<div class="void row"></div>
+		</div>
+	</section>
+
+	<section class="description">
+		<img title="<?php echo lang('search.desc_img'); ?>" alt="<?php echo lang('search.desc_img'); ?>" src="<?php echo site_url('img/missing.png'); ?>">
+		<p><?php echo lang('search.name'); ?>: <span id="desc_name"></span></p>
+		<p><?php echo lang('search.type'); ?>: <span id="desc_type"></span></p>
+		<p><?php echo lang('search.brand'); ?>: <span id="desc_brand"></span></p>
+		<p><?php echo lang('search.price'); ?>: <span id="desc_price"></span></p>
+		<p><?php echo lang('search.desc'); ?>: <span id="desc_desc"></span></p>
+		<p><?php echo lang('search.hall'); ?>: <span id="desc_hall"></span></p>
+		<p><?php echo lang('search.shelf'); ?>: <span id="desc_shelf"></span></p>
+	</section>
 
 	<nav>
 		<ul>

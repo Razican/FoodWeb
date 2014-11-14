@@ -461,7 +461,7 @@ $config['compress_output'] = TRUE;
 | code less readable.
 |
 */
-$config['minify_output'] = TRUE;
+$config['minify_output'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
