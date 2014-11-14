@@ -19,7 +19,7 @@ class Search extends CI_Controller {
 			$this->lang->load('search');
 			$this->load->model('user_model', 'user');
 
-			if ($this->input->method() === 'post')
+			if ($this->input->method() === 'post' && $this->input->is_ajax_request())
 			{
 				$name = $this->input->post('name');
 				$type = (int) $this->input->post('type');

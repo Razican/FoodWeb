@@ -1,30 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 4.2.6deb1
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 14-11-2014 a las 22:23:05
--- Versión del servidor: 5.5.40-0ubuntu1
--- Versión de PHP: 5.5.12-2ubuntu4.1
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Base de datos: `foodweb`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `products`
---
 
 CREATE TABLE IF NOT EXISTS `products` (
 `id` int(10) unsigned NOT NULL,
@@ -40,10 +21,6 @@ CREATE TABLE IF NOT EXISTS `products` (
   `vegetables` tinyint(1) unsigned NOT NULL,
   `milk` tinyint(1) unsigned NOT NULL
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
-
---
--- Volcado de datos para la tabla `products`
---
 
 INSERT INTO `products` (`id`, `name`, `type`, `brand`, `price`, `description`, `hall`, `shelf`, `gluten`, `diabetes`, `vegetables`, `milk`) VALUES
 (1, 'Pringles', 5, 'Pringles', 255, 'Do you have a taste for something tangy or a craving for a snack with a kick? Explore the cans to uncover your perfect Pringles flavour fit.', 4, 1, 0, 1, 1, 1),
@@ -72,12 +49,6 @@ INSERT INTO `products` (`id`, `name`, `type`, `brand`, `price`, `description`, `
 (24, 'Maria biscuits', 4, 'Hacendado', 87, '400 gr of Spanish maria biscuits', 4, 2, 0, 0, 1, 0),
 (25, 'Anana', 1, 'Del Monte', 229, '1kg of South American anana', 3, 1, 1, 0, 0, 1);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `sessions`
---
-
 CREATE TABLE IF NOT EXISTS `sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
   `ip_address` varchar(45) NOT NULL DEFAULT '0',
@@ -85,12 +56,6 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
   `user_data` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
 
 CREATE TABLE IF NOT EXISTS `users` (
 `id` int(10) unsigned NOT NULL,
@@ -103,40 +68,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `health_issues` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Índices para tablas volcadas
---
 
---
--- Indices de la tabla `products`
---
 ALTER TABLE `products`
  ADD PRIMARY KEY (`id`);
 
---
--- Indices de la tabla `sessions`
---
 ALTER TABLE `sessions`
  ADD PRIMARY KEY (`session_id`,`ip_address`,`user_agent`), ADD KEY `last_activity_idx` (`last_activity`);
 
---
--- Indices de la tabla `users`
---
 ALTER TABLE `users`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `email` (`email`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `confirmation` (`confirmation`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
 
---
--- AUTO_INCREMENT de la tabla `products`
---
 ALTER TABLE `products`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT de la tabla `users`
---
 ALTER TABLE `users`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
