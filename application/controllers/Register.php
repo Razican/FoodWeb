@@ -72,7 +72,13 @@ class Register extends CI_Controller {
 
 	public function validate($validation_code = NULL)
 	{
-		// TODO
+		if ( ! empty($validation_code) && strlen($validation_code) === 5)
+		{
+			$this->load->model('user_model', 'user');
+			$this->user->validate($validation_code);
+		}
+
+		redirect('/');
 	}
 }
 

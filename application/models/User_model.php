@@ -47,6 +47,15 @@ class User_model extends CI_Model {
 			return NULL;
 		}
 	}
+
+	public function validate($code)
+	{
+		$CI =& get_instance();
+
+		$CI->db->where('confirmation', $code);
+		$CI->db->set('confirmation', NULL);
+		$CI->db->update('users');
+	}
 }
 
 /* End of file User_model.php */

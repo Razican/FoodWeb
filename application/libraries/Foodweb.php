@@ -54,10 +54,14 @@ class Foodweb {
 			return lang('register.error_email_2');
 		}
 
+		$CI->load->helper('string');
+		$validation = random_string('alnum', 5);
+
 		$data = array(
 			'name' => $name,
 			'lastname' => $lastname,
 			'email' => $email,
+			'confirmation' => $validation,
 			'username' => $username,
 			'password' => sha1($password),
 			'health_issues' => serialize($health_issues));
