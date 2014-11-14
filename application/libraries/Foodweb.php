@@ -172,7 +172,6 @@ class Foodweb {
 		$CI->db->where('price <=', (int) ($price_max*100));
 
 		$health_issues = $CI->user->get('health_issues');
-		$health_issues['milk'] = TRUE;
 
 		if (isset($health_issues['gluten']))
 		{
