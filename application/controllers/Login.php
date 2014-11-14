@@ -17,12 +17,14 @@ class Login extends CI_Controller {
 		}
 		elseif ($this->input->method() === 'post')
 		{
-			if (empty($this->input->post('username')) OR
-				empty($this->input->post('password')))
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			if (empty($username) OR
+				empty($password))
 			{
 				$this->session->set_flashdata('error_msg', lang('login.error_empty'));
 
-				if ( ! empty($this->input->post('username')))
+				if ( ! empty($username))
 				{
 					$this->session->set_flashdata('username', $this->input->post('username'));
 				}

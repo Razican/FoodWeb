@@ -29,7 +29,7 @@ $config['protocol']			= 'smtp';
 | SMTP Server Address.
 |
 */
-$config['smtp_host']		= 'ssl://smtp.googlemail.com';
+$config['smtp_host']		= 'smtp.googlemail.com';
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ $config['smtp_pass']		= '';
 | //$config['smtp_port']	= 465;
 |
 */
-$config['smtp_port']		= 465;
+$config['smtp_port']		= 587;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +96,7 @@ $config['newline']			= "\r\n";
 | SMTP encryption method.
 |
 */
-$config['smtp_crypto']		= 'ssl';
+$config['smtp_crypto']		= 'tls';
 
 /*
 |--------------------------------------------------------------------------

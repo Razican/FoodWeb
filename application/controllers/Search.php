@@ -18,6 +18,7 @@ class Search extends CI_Controller {
 		{
 			$this->lang->load('search');
 			$this->load->model('user_model', 'user');
+			$this->user->load($this->session->userdata('username'));
 
 			if ($this->input->method() === 'post' && $this->input->is_ajax_request())
 			{
@@ -39,8 +40,6 @@ class Search extends CI_Controller {
 			}
 			else
 			{
-				$this->user->load($this->session->userdata('username'));
-
 				$head['title'] = lang('search.search');
 				$head['script'] = $this->load->view('search-js', '', TRUE);
 
