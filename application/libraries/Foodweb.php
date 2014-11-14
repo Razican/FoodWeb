@@ -54,8 +54,6 @@ class Foodweb {
 			return lang('register.error_email_2');
 		}
 
-		// TODO confirmation email
-
 		$data = array(
 			'name' => $name,
 			'lastname' => $lastname,
@@ -66,7 +64,22 @@ class Foodweb {
 
 		$CI->db->insert('users', $data);
 
-		return NULL;
+		$head['title'] = lang('register.register');
+		$email['body'] = sprintf(lang('register.email_text'), $name, $password, site_url('register/validate/'.$validation));
+
+		$email_head = $CI->load->view('header', $head, TRUE);
+		$email_body = $CI->load->view('email', $email, TRUE);
+		$email_footer = $CI->load->view('header', '', TRUE);
+
+		$CI->load->library('email');
+
+		$CI->email->from('admin@razican.com', 'Food Finder');
+		$CI->email->to($email);
+
+		$CI->email->subject(lang('reset.reset'));
+		$CI->email->message($email_head.$email_body.$email_footer);
+
+		return $CI->email->send() ? NULL : lang('register.error_email_1');
 	}
 
 	public function reset($email, $username, $password)
