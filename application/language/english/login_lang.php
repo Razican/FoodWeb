@@ -3,9 +3,11 @@
 $lang['login.login'] 			= 'Login';
 $lang['login.username']			= 'Username';
 $lang['login.password']			= 'Password';
+$lang['login.reset_password']	= 'Forgot user/password?';
+
 $lang['login.username_eg']		= 'Example: user';
 $lang['login.password_eg']		= 'Example: 1234';
-$lang['login.reset_password']	= 'Forgot user/password?';
+
 $lang['login.error_incorrect']	= 'Incorrect user/password.';
 $lang['login.error_empty']		= 'You must fill all the fields.';
 

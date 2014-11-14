@@ -96,13 +96,22 @@ section.reset input[type="checkbox"]
 	margin-left: 2em;
 }
 
+p.welcome
+{
+	margin: 2em 0 -2em 3em;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 1.1em;
+	color: #FFFFFF;
+}
+
 /* Form */
 form label
 {
 	font-family: sans-serif;
 }
 
-form > div
+form div
 {
 	vertical-align: top;
 	margin-top: 1em;
@@ -116,11 +125,27 @@ form div.label
 	width: 40%;
 }
 
+.search form div.label
+{
+	width: 25%;
+}
+
 form div.input
 {
 	text-align: left;
 	padding-left: 0.5em;
 	max-width: 55%;
+}
+
+.search form div.input
+{
+	width: 73%;
+}
+
+.search form div.input input, .search form div.input select
+{
+	width: 100%;
+	margin: 0;
 }
 
 form div.input div
@@ -139,6 +164,33 @@ form div.submit
 {
 	width: 100%;
 	text-align: center;
+}
+
+.search button img
+{
+	margin-right: 0;
+}
+
+.search .form
+{
+	width: 80%;
+}
+
+.search .form p
+{
+	margin: 0;
+}
+
+.search .form input[type="number"]
+{
+	width: 3.8em;
+	text-align: center;
+}
+
+.search .submit
+{
+	width: 20%;
+	margin-left: -2em;
 }
 
 /* white button */

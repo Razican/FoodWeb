@@ -69,6 +69,11 @@ class Register extends CI_Controller {
 			$this->load->view('footer');
 		}
 	}
+
+	public function validate($validation_code = NULL)
+	{
+		// TODO
+	}
 }
 
 /* End of file Register.php */
