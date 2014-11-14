@@ -89,13 +89,13 @@ class Foodweb {
 
 			if ($username)
 			{
-				$this->db->select('username');
+				$CI->db->select('username');
 			}
 
-			$this->db->select('id');
-			$this->db->where('email', $email);
+			$CI->db->select('id');
+			$CI->db->where('email', $email);
 
-			$query = $this->db->get('users');
+			$query = $CI->db->get('users');
 
 			if ($query->num_rows() === 0)
 			{
@@ -132,23 +132,89 @@ class Foodweb {
 				$head['title'] = lang('reset.reset');
 				$email['body'] = $email_text;
 
-				$email_head = $this->load->view('header', $head, TRUE);
-				$email_body = $this->load->view('email', $email, TRUE);
-				$email_footer = $this->load->view('header', '', TRUE);
+				$email_head = $CI->load->view('header', $head, TRUE);
+				$email_body = $CI->load->view('email', $email, TRUE);
+				$email_footer = $CI->load->view('header', '', TRUE);
 
-				$this->load->library('email');
+				$CI->load->library('email');
 
-				$this->email->from('admin@razican.com', 'Food Finder');
-				$this->email->to($email);
+				$CI->email->from('admin@razican.com', 'Food Finder');
+				$CI->email->to($email);
 
-				$this->email->subject(lang('reset.reset'));
-				$this->email->message($email_head.$email_body.$email_footer);
+				$CI->email->subject(lang('reset.reset'));
+				$CI->email->message($email_head.$email_body.$email_footer);
 
-				$this->email->send();
+				$CI->email->send();
 
 				return NULL;
 			}
 		}
+	}
+
+	public function search($name, $type, $brand, $price_min, $price_max)
+	{
+		$result = array();
+		$CI =& get_instance();
+
+		if ( ! empty($name))
+		{
+			$CI->db->like('name', $name);
+		}
+
+		$CI->db->where('type', $type);
+
+		if ( ! empty($brand))
+		{
+			$CI->db->like('brand', $brand);
+		}
+
+		$CI->db->where('price >=', (int) ($price_min*100));
+		$CI->db->where('price <=', (int) ($price_max*100));
+
+		$health_issues = $CI->user->get('health_issues');
+		$health_issues['milk'] = TRUE;
+
+		if (isset($health_issues['gluten']))
+		{
+			$CI->db->where('gluten', 1);
+		}
+
+		if (isset($health_issues['diabetes']))
+		{
+			$CI->db->where('diabetes', 1);
+		}
+
+		if (isset($health_issues['vegetables']))
+		{
+			$CI->db->where('vegetables', 1);
+		}
+
+		if (isset($health_issues['milk']))
+		{
+			$CI->db->where('milk', 1);
+		}
+
+		$query = $CI->db->get('products');
+
+		if ($query->num_rows() > 0)
+		{
+			foreach ($query->result() as $product)
+			{
+				$result[] = array(
+					'id' => $product->id,
+					'name' => $product->name,
+					'type' => lang('search.type_'.$product->type),
+					'brand' => $product->brand,
+					'price' => $product->price/100,
+					'desc' => $product->description,
+					'hall' => $product->hall,
+					'shelf' => $product->shelf);
+			}
+		}
+
+		log_message('debug', print_r($result, TRUE));
+
+		return $result;
 	}
 }
 

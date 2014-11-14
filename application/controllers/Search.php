@@ -21,43 +21,19 @@ class Search extends CI_Controller {
 
 			if ($this->input->method() === 'post')
 			{
-				$search['results'] = array(
-						array(
-							'name' => $this->security->get_csrf_token_name(),
-							'token' => $this->security->get_csrf_hash()),
-						array('id' => 1,
-							'name' => 'Pringles',
-							'type' => 'Food',
-							'brand' => 'Pringles',
-							'price' => 2.55,
-							'desc' => 'Pringles are potato chips',
-							'hall' => 2,
-							'shelf' => 3),
-						array('id' => 2,
-							'name' => 'Milk',
-							'type' => 'Drink',
-							'brand' => 'Valio',
-							'price' => 1.15,
-							'desc' => 'Great milk at good price',
-							'hall' => 1,
-							'shelf' => 1),
-						array('id' => 5,
-							'name' => 'Chocolate',
-							'type' => 'Food',
-							'brand' => 'KarlFazer',
-							'price' => 1.35,
-							'desc' => 'Best chocolate ever',
-							'hall' => 2,
-							'shelf' => 1),
-						array('id' => 12,
-							'name' => 'Cookies',
-							'type' => 'Food',
-							'brand' => 'GoodCookies',
-							'price' => 1.85,
-							'desc' => 'Great cookies',
-							'hall' => 3,
-							'shelf' => 4)
-					);
+				$name = $this->input->post('name');
+				$type = (int) $this->input->post('type');
+				$brand = $this->input->post('brand');
+				$price_min = (float) $this->input->post('price_min');
+				$price_max = (float) $this->input->post('price_max');
+
+				$result = $this->foodweb->search($name, $type, $brand, $price_min, $price_max);
+
+				array_unshift($result, array(
+						'name' => $this->security->get_csrf_token_name(),
+						'token' => $this->security->get_csrf_hash()));
+
+				$search['results'] = $result;
 
 				$this->load->view('search_results', $search);
 			}

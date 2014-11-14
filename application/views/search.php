@@ -33,7 +33,12 @@
 
 			<div class="input">
 				<select id="type" name="type">
-					<option value="vegetables" selected><?php echo lang('search.vegetables'); ?></option>
+					<option value="0"><?php echo lang('search.type_0'); ?></option>
+					<option value="1"><?php echo lang('search.type_1'); ?></option>
+					<option value="2"><?php echo lang('search.type_2'); ?></option>
+					<option value="3"><?php echo lang('search.type_3'); ?></option>
+					<option value="4"><?php echo lang('search.type_4'); ?></option>
+					<option value="5"><?php echo lang('search.type_5'); ?></option>
 				</select>
 			</div>
 
@@ -42,7 +47,7 @@
 			</div>
 
 			<div class="input">
-				<p><?php echo lang('search.between'); ?> <input type="number" min="0" max="100" step="0.01" value="0">€ <?php echo lang('search.and'); ?> <input type="number" min="0" max="100" step="0.01" value="99.99">€</p>
+				<p><?php echo lang('search.between'); ?> <input name="price_min" type="number" min="0" max="100" step="0.01" value="0">€ <?php echo lang('search.and'); ?> <input name="price_max" type="number" min="0" max="100" step="0.01" value="99.99">€</p>
 			</div>
 		</div>
 		<div class="submit">
@@ -69,7 +74,7 @@
 		<p><?php echo lang('search.type'); ?>: <span id="desc_type"></span></p>
 		<p><?php echo lang('search.brand'); ?>: <span id="desc_brand"></span></p>
 		<p><?php echo lang('search.price'); ?>: <span id="desc_price"></span></p>
-		<p><?php echo lang('search.desc'); ?>: <span id="desc_desc"></span></p>
+		<p><?php echo lang('search.description'); ?>: <span id="desc_desc"></span></p>
 		<p><?php echo lang('search.hall'); ?>: <span id="desc_hall"></span></p>
 		<p><?php echo lang('search.shelf'); ?>: <span id="desc_shelf"></span></p>
 	</section>

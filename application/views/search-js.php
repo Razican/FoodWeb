@@ -76,3 +76,5 @@ $(document).ready(function () {
 			}, "json");
 	});
 });
+
+// TODO max/min check
