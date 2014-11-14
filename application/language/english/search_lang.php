@@ -9,6 +9,7 @@ $lang['search.price']			= 'Price';
 $lang['search.desc']			= 'Desc';
 $lang['search.hall']			= 'Hall';
 $lang['search.shelf']			= 'Shelf';
+$lang['search.error']			= 'Nothing found according to the criteria.';
 
 $lang['search.between']			= 'between';
 $lang['search.and']				= 'and';

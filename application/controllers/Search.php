@@ -68,7 +68,6 @@ class Search extends CI_Controller {
 				$head['title'] = lang('search.search');
 				$head['script'] = $this->load->view('search-js', '', TRUE);
 
-				$search['error_msg'] = $this->session->flashdata('error_msg');
 				$search['welcome'] = sprintf(lang('search.welcome'), $this->user->get('name'));
 
 				$this->load->view('header', $head);

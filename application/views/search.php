@@ -4,12 +4,10 @@
 
 	<h2><?php echo lang('search.search'); ?></h2>
 
-	<?php if ( ! is_null($error_msg)): ?>
-		<section class="error">
-			<img src="<?php echo site_url('img/error.png'); ?>" title="<?php echo lang('overal.error'); ?>">
-			<?php echo $error_msg; ?>
-		</section>
-	<?php endif; ?>
+	<section class="error" style="display:none">
+		<img src="<?php echo site_url('img/error.png'); ?>" title="<?php echo lang('overal.error'); ?>">
+		<?php echo lang('search.error'); ?>
+	</section>
 
 	<?php echo form_open('search'); ?>
 		<div class="form">

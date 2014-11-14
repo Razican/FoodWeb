@@ -12,12 +12,18 @@ $(document).ready(function () {
 
 		results = new Array();
 		$('.search .table .row:not(.void):not(.title)').remove();
+		$('.error').hide();
 		$('form input[type="hidden"]').remove();
 		$('.search .description img').attr('src', "<?php echo site_url('img/missing.png'); ?>");
 		$('.search .description span').html('');
 
 		$.post("<?php echo site_url('search'); ?>", form,
 			function(data) {
+				if (data.length === 1)
+				{
+					$('.error').show();
+				}
+
 				$.each(data, function(index, product) {
 
 					if (index === 0)
