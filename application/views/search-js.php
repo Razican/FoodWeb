@@ -19,15 +19,14 @@ $(document).ready(function () {
 
 		$.post("<?php echo site_url('search'); ?>", form,
 			function(data) {
+
 				if (data.length === 1)
-				{
 					$('.error').show();
-				}
 
 				$.each(data, function(index, product) {
 
-					if (index === 0)
-					{
+					if (index === 0) {
+
 						csrf = product;
 
 						$('form').append(
@@ -35,9 +34,8 @@ $(document).ready(function () {
 								.attr('type', 'hidden')
 								.attr('name', csrf.name)
 								.attr('value', csrf.token).hide());
-					}
-					else
-					{
+					} else {
+
 						results[index-1] = product;
 
 						$('.search .table .void.row').before(
@@ -75,6 +73,15 @@ $(document).ready(function () {
 
 			}, "json");
 	});
-});
 
-// TODO max/min check
+	$('input[type="number"]').change(function() {
+
+		if ($(this).val() != '' && Number($('input[name="price_min"]').val()) > Number($('input[name="price_max"]').val())) {
+
+			if ($(this).attr('name') === 'price_min')
+				$('input[name="price_max"]').val($(this).val());
+			else
+				$('input[name="price_min"]').val($(this).val());
+		}
+	});
+});
