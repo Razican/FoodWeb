@@ -63,7 +63,7 @@ $(document).ready(function () {
 					$('#desc_name').html(product.name);
 					$('#desc_type').html(product.type);
 					$('#desc_brand').html(product.brand);
-					$('#desc_price').html(product.price);
+					$('#desc_price').html(product.price+"€");
 					$('#desc_desc').html(product.desc);
 					$('#desc_hall').html(product.hall);
 					$('#desc_shelf').html(product.shelf);
