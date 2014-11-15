@@ -7,9 +7,17 @@ class Api extends CI_Controller {
 		show_404("api");
 	}
 
-	public function register()
+	public function status()
 	{
-		// TODO
+		if ($this->input->method() === 'post')
+		{
+			$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+			$this->load->view('api', $data);
+		}
+		else
+		{
+			show_404("api/login");
+		}
 	}
 
 	public function login()
@@ -37,14 +45,40 @@ class Api extends CI_Controller {
 		}
 	}
 
-	public function search()
+	public function register()
 	{
-		// TODO
+		if ($this->input->method() === 'post')
+		{
+			// TODO
+		}
+		else
+		{
+			show_404("api/login");
+		}
 	}
 
-	public function reset_pass()
+	public function reset_password()
 	{
-		// TODO
+		if ($this->input->method() === 'post')
+		{
+			// TODO
+		}
+		else
+		{
+			show_404("api/login");
+		}
+	}
+
+	public function search()
+	{
+		if ($this->input->method() === 'post')
+		{
+			// TODO
+		}
+		else
+		{
+			show_404("api/login");
+		}
 	}
 }
 

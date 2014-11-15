@@ -84,7 +84,9 @@ class Foodweb {
 		$CI->email->subject(lang('register.register'));
 		$CI->email->message($email_head.$email_body.$email_footer);
 
-		return $CI->email->send() ? NULL : lang('register.error_email_1');
+		$CI->email->send();
+
+		return NULL;
 	}
 
 	public function reset($email, $username, $password)
@@ -148,11 +150,11 @@ class Foodweb {
 				}
 
 				$head['title'] = lang('reset.reset');
-				$email_data['title'] = $head['title'];
-				$email_data['body'] = $email_text;
+				$email_body['title'] = $head['title'];
+				$email_body['body'] = $email_text;
 
 				$email_head = $CI->load->view('header', $head, TRUE);
-				$email_body = $CI->load->view('email', $email_data, TRUE);
+				$email_body = $CI->load->view('email', $email_body, TRUE);
 				$email_footer = $CI->load->view('footer', '', TRUE);
 
 				$CI->load->library('email');
