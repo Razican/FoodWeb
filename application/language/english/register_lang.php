@@ -25,7 +25,7 @@ $lang['register.passconf_eg']	= 'Example: 1234';
 $lang['register.error_pass']	= 'Paswords don\'t match';
 $lang['register.error_user']	= 'Username already exists.';
 $lang['register.error_email_1']	= 'Incorrect email.';
-$lang['register.error_email_2']	= 'Email exists';
+$lang['register.error_email_2']	= 'Email already exists.';
 $lang['register.error_empty']	= 'You must fill all the fields.';
 
 $lang['register.email_text']	= '<p>Hello %1$s, welcome to Food Finder!</p>'.

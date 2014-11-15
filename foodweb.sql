@@ -45,8 +45,8 @@ INSERT INTO `products` (`id`, `name`, `type`, `brand`, `price`, `description`, `
 (20, 'Red Pepper', 0, 'Dia', 79, '500 gr of red pepper', 3, 2, 1, 1, 0, 1),
 (21, 'Green Apples', 1, 'Dia', 124, '1 kg of sweet Italian apples.', 3, 1, 1, 0, 0, 1),
 (22, 'BBQ Chicken wings', 2, 'Arla', 345, '1kg of spicy chicken BBQ wings', 2, 1, 0, 1, 1, 0),
-(23, 'Integral bread', 4, 'X-tra', 233, '500 gr of integral toasts full of fibre.', 4, 2, 0, 0, 1, 0),
-(24, 'Maria biscuits', 4, 'Hacendado', 87, '400 gr of Spanish maria biscuits', 4, 2, 0, 0, 1, 0),
+(23, 'Integral bread', 5, 'X-tra', 233, '500 gr of integral toasts full of fibre.', 4, 2, 0, 0, 1, 0),
+(24, 'Maria biscuits', 5, 'Hacendado', 87, '400 gr of Spanish maria biscuits', 4, 2, 0, 0, 1, 0),
 (25, 'Anana', 1, 'Del Monte', 229, '1kg of South American anana', 3, 1, 1, 0, 0, 1);
 
 CREATE TABLE IF NOT EXISTS `sessions` (
