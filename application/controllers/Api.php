@@ -11,7 +11,7 @@ class Api extends CI_Controller {
 	{
 		if ($this->input->method() === 'post')
 		{
-			$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+			$data['response'] = array("status" => "OK", "error" => NULL);
 			$this->load->view('api', $data);
 		}
 		else
@@ -32,11 +32,11 @@ class Api extends CI_Controller {
 
 			if (is_null($error))
 			{
-				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+				$data['response'] = array("status" => "OK", "error" => NULL);
 			}
 			else
 			{
-				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+				$data['response'] = array("status" => "ERR", "error" => $error);
 			}
 
 			$this->load->view('api', $data);
@@ -61,8 +61,8 @@ class Api extends CI_Controller {
 		$milk = is_null($this->input->post('milk')) ? NULL : (bool) $this->input->post('milk');
 
 		if ($this->input->method() === 'post' && ! empty($name) && ! empty($lastname) &&
-			_is_email($email) && ! empty($username) && _is_sha1($password) && is_bool($gluten) &&
-			is_bool($diabetes) && is_bool($vegetables) && is_bool($milk))
+			$this->_is_email($email) && ! empty($username) && $this->_is_sha1($password) &&
+			is_bool($gluten) && is_bool($diabetes) && is_bool($vegetables) && is_bool($milk))
 		{
 			$this->lang->load('register');
 			$error = $this->foodweb->register($name, $lastname, $email, $username, $password, $password,
@@ -70,11 +70,11 @@ class Api extends CI_Controller {
 
 			if (is_null($error))
 			{
-				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+				$data['response'] = array("status" => "OK", "error" => NULL);
 			}
 			else
 			{
-				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+				$data['response'] = array("status" => "ERR", "error" => $error);
 			}
 
 			$this->load->view('api', $data);
@@ -88,21 +88,24 @@ class Api extends CI_Controller {
 	public function reset_password()
 	{
 		$email = $this->input->post('email');
-		$username = is_null($this->input->post('username')) ? NULL : (bool) $this->input->post('username');
-		$password = is_null($this->input->post('password')) ? NULL : (bool) $this->input->post('password');
+		$username = is_null($this->input->post('username')) ? NULL : $this->input->post('username') === "true";
+		$password = is_null($this->input->post('password')) ? NULL : $this->input->post('password') === "true";
 
-		if ($this->input->method() === 'post' && _is_email($email) && is_bool($username) && is_bool($password))
+		if ($this->input->method() === 'post' && $this->_is_email($email) && is_bool($username) && is_bool($password))
 		{
+			$this->lang->load('reset');
 			$error = $this->foodweb->reset($email, $username, $password);
 
 			if (is_null($error))
 			{
-				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+				$data['response'] = array("status" => "OK", "error" => NULL);
 			}
 			else
 			{
-				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+				$data['response'] = array("status" => "ERR", "error" => $error);
 			}
+
+			$this->load->view('api', $data);
 		}
 		else
 		{
