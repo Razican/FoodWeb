@@ -66,7 +66,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(25) NOT NULL,
   `password` char(40) NOT NULL,
   `health_issues` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+INSERT INTO `users` (`id`, `name`, `lastname`, `email`, `confirmation`, `username`, `password`, `health_issues`) VALUES
+(1, 'testUser', 'testUserLastname', 'testUser@example.com', NULL, 'testUser', '8cb2237d0679ca88db6464eac60da96345513964', 'a:4:{s:6:"gluten";b:0;s:8:"diabetes";b:0;s:10:"vegetables";b:0;s:4:"milk";b:0;}');
 
 
 ALTER TABLE `products`
@@ -82,7 +85,7 @@ ALTER TABLE `users`
 ALTER TABLE `products`
 MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 ALTER TABLE `users`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

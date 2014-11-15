@@ -63,7 +63,7 @@ class Foodweb {
 			'email' => $email,
 			'confirmation' => $validation,
 			'username' => $username,
-			'password' => sha1($password),
+			'password' => $password,
 			'health_issues' => serialize($health_issues));
 
 		$CI->db->insert('users', $data);

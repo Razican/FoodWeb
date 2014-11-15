@@ -28,8 +28,9 @@ class Api extends CI_Controller {
 		if ($this->input->method() === 'post' && ! empty($username) && $this->_is_sha1($password))
 		{
 			$this->lang->load('login');
+			$error = $this->foodweb->check_login($username, $password);
 
-			if (is_null($error = $this->foodweb->check_login($username, $password)))
+			if (is_null($error))
 			{
 				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
 			}
@@ -48,9 +49,33 @@ class Api extends CI_Controller {
 
 	public function register()
 	{
-		if ($this->input->method() === 'post')
+		$name = $this->input->post('name');
+		$lastname = $this->input->post('lastname');
+		$email = $this->input->post('email');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$gluten = is_null($this->input->post('gluten')) ? NULL : (bool) $this->input->post('gluten');
+		$diabetes = is_null($this->input->post('diabetes')) ? NULL : (bool) $this->input->post('diabetes');
+		$vegetables = is_null($this->input->post('vegetables')) ? NULL : (bool) $this->input->post('vegetables');
+		$milk = is_null($this->input->post('milk')) ? NULL : (bool) $this->input->post('milk');
+
+		if ($this->input->method() === 'post' && ! empty($name) && ! empty($lastname) &&
+			_is_email($email) && ! empty($username) && _is_sha1($password) && is_bool($gluten) &&
+			is_bool($diabetes) && is_bool($vegetables) && is_bool($milk))
 		{
-			// TODO
+			$this->lang->load('register');
+			$error = $this->foodweb->register($name, $lastname, $email, $username, $password, $password,
+											$gluten, $diabetes, $vegetables, $milk);
+
+			if (is_null($error))
+			{
+				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+			}
+			else
+			{
+				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+			}
 		}
 		else
 		{
@@ -85,6 +110,11 @@ class Api extends CI_Controller {
 	private function _is_sha1($password)
 	{
 		return ! empty($password) && strlen($password) === 40;
+	}
+
+	private function _is_email($email)
+	{
+		return ! empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL);
 	}
 }
 
