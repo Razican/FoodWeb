@@ -11,7 +11,8 @@ $lang['reset.email_eg']			= 'Example: a@gmail.com';
 
 $lang['reset.error_no_email']	= 'You must fill the email';
 $lang['reset.error_no_select']	= 'You must select what you want to recover';
-$lang['reset.error_email']		= 'Incorrect email';
+$lang['reset.error_email_1']	= 'The email you provided is not valid';
+$lang['reset.error_email_2']	= 'There is no user with that email';
 
 $lang['reset.email_username']	= '<p>Hello, you have requested your forgoten username.</p><p>Here it is: %s</p>';
 $lang['reset.email_password']	= '<p>Hello, you have requested your forgoten password. Since it is stored encrypted, we had to reset it.</p><p>Here it is: %s</p>';

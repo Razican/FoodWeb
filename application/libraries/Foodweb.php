@@ -99,7 +99,7 @@ class Foodweb {
 		}
 		elseif ( ! filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
-			return lang('reset.error_email');
+			return lang('reset.error_email_1');
 		}
 		else
 		{
@@ -117,7 +117,7 @@ class Foodweb {
 
 			if ($query->num_rows() === 0)
 			{
-				return lang('reset.error_email');
+				return lang('reset.error_email_2');
 			}
 			else
 			{
@@ -148,11 +148,11 @@ class Foodweb {
 				}
 
 				$head['title'] = lang('reset.reset');
-				$email['title'] = $head['title'];
-				$email['body'] = $email_text;
+				$email_data['title'] = $head['title'];
+				$email_data['body'] = $email_text;
 
 				$email_head = $CI->load->view('header', $head, TRUE);
-				$email_body = $CI->load->view('email', $email, TRUE);
+				$email_body = $CI->load->view('email', $email_data, TRUE);
 				$email_footer = $CI->load->view('footer', '', TRUE);
 
 				$CI->load->library('email');
@@ -229,8 +229,6 @@ class Foodweb {
 					'shelf' => $product->shelf);
 			}
 		}
-
-		log_message('debug', print_r($result, TRUE));
 
 		return $result;
 	}
