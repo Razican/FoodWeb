@@ -81,19 +81,32 @@ class Api extends CI_Controller {
 		}
 		else
 		{
-			show_404("api/login");
+			show_404("api/register");
 		}
 	}
 
 	public function reset_password()
 	{
-		if ($this->input->method() === 'post')
+		$email = $this->input->post('email');
+		$username = is_null($this->input->post('username')) ? NULL : (bool) $this->input->post('username');
+		$password = is_null($this->input->post('password')) ? NULL : (bool) $this->input->post('password');
+
+		if ($this->input->method() === 'post' && _is_email($email) && is_bool($username) && is_bool($password))
 		{
-			// TODO
+			$error = $this->foodweb->reset($email, $username, $password);
+
+			if (is_null($error))
+			{
+				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
+			}
+			else
+			{
+				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
+			}
 		}
 		else
 		{
-			show_404("api/login");
+			show_404("api/reset_password");
 		}
 	}
 
@@ -105,7 +118,7 @@ class Api extends CI_Controller {
 		}
 		else
 		{
-			show_404("api/login");
+			show_404("api/search");
 		}
 	}
 
