@@ -76,6 +76,8 @@ class Api extends CI_Controller {
 			{
 				$data['response'] = json_encode(array("status" => "ERR", "error" => $error));
 			}
+
+			$this->load->view('api', $data);
 		}
 		else
 		{
