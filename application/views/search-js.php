@@ -3,6 +3,18 @@ $(document).ready(function () {
 
 	var results = new Array();
 
+	var show_description = function(product) {
+					$('.search .description img').attr('src', "<?php echo site_url('img/products'); ?>/"+product.id+".jpg");
+
+					$('#desc_name').html(product.name);
+					$('#desc_type').html(product.type);
+					$('#desc_brand').html(product.brand);
+					$('#desc_price').html(product.price+"€");
+					$('#desc_desc').html(product.desc);
+					$('#desc_hall').html(product.hall);
+					$('#desc_shelf').html(product.shelf);
+				}
+
 	$("button").click(function (event) {
 		event.preventDefault();
 
@@ -39,7 +51,7 @@ $(document).ready(function () {
 						results[index-1] = product;
 
 						$('.search .table .void.row').before(
-							$('<div>').attr('class', 'row')
+							$('<div>').attr('class', 'row'+(data.length === 2 ? " selected" : ""))
 								.append(
 									$('<div>').html(product.name))
 								.append(
@@ -49,6 +61,8 @@ $(document).ready(function () {
 								.append(
 									$('<div>').html(product.price + "€"))
 							);
+
+						if (data.length === 2) show_description(product);
 					}
 				});
 
@@ -58,15 +72,7 @@ $(document).ready(function () {
 					$('.search .table .row').removeClass('selected');
 					$(this).addClass('selected');
 
-					$('.search .description img').attr('src', "<?php echo site_url('img/products'); ?>/"+product.id+".jpg");
-
-					$('#desc_name').html(product.name);
-					$('#desc_type').html(product.type);
-					$('#desc_brand').html(product.brand);
-					$('#desc_price').html(product.price+"€");
-					$('#desc_desc').html(product.desc);
-					$('#desc_hall').html(product.hall);
-					$('#desc_shelf').html(product.shelf);
+					show_description(product);
 				});
 
 				$('#loading').hide();
