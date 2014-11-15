@@ -70,7 +70,7 @@ class Foodweb {
 
 		$head['title'] = lang('register.register');
 		$email_body['title'] = $head['title'];
-		$email_body['body'] = sprintf(lang('register.email_text'), $name, $password, site_url('register/validate/'.$validation));
+		$email_body['body'] = sprintf(lang('register.email_text'), $name, site_url('register/validate/'.$validation));
 
 		$email_head = $CI->load->view('header', $head, TRUE);
 		$email_body = $CI->load->view('email', $email_body, TRUE);

@@ -29,8 +29,7 @@ $lang['register.error_email_2']	= 'Email exists';
 $lang['register.error_empty']	= 'You must fill all the fields.';
 
 $lang['register.email_text']	= '<p>Hello %1$s, welcome to Food Finder!</p>'.
-								'<p>You have successfuly registered our application. Since the password is stored encrypted in our database, you can read it here for the last time, don\'t lose it: %2$s</p>'.
-								'<p>Now you can confirm your email by clicking <a title="Confirm email" href="%3$s">here</a>.</p>';
+								'<p>You have successfuly registered our application.</p><p>Now you can confirm your email by clicking <a title="Confirm email" href="%2$s">here</a>.</p>';
 
 /* End of file register_lang.php */
 /* Location: ./application/language/english/register_lang.php */
