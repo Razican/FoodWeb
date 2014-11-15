@@ -4,7 +4,7 @@
 
 	<?php if ( ! is_null($error_msg)): ?>
 		<section class="error">
-			<img src="<?php echo site_url('img/error.png'); ?>" title="<?php echo lang('overal.error'); ?>">
+			<img width="64" height="64" src="<?php echo site_url('img/error.png'); ?>" title="<?php echo lang('overal.error'); ?>">
 			<?php echo $error_msg; ?>
 		</section>
 	<?php endif; ?>
@@ -79,7 +79,7 @@
 		</div>
 
 		<div class="submit">
-			<button class="white"><img src="<?php echo site_url('img/register.png'); ?>"><?php echo lang('register.register'); ?></button>
+			<button class="white"><img width="24" height="24" src="<?php echo site_url('img/register.png'); ?>"><?php echo lang('register.register'); ?></button>
 		</div>
 	</form>
 

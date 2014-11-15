@@ -41,13 +41,13 @@ class Search extends CI_Controller {
 			else
 			{
 				$head['title'] = lang('search.search');
-				$head['script'] = $this->load->view('search-js', '', TRUE);
+				$footer['script'] = $this->load->view('search-js', '', TRUE);
 
 				$search['welcome'] = sprintf(lang('search.welcome'), $this->user->get('name'));
 
 				$this->load->view('header', $head);
 				$this->load->view('search', $search);
-				$this->load->view('footer');
+				$this->load->view('footer', $footer);
 			}
 		}
 	}

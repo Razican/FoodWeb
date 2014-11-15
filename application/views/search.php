@@ -5,7 +5,7 @@
 	<h2><?php echo lang('search.search'); ?></h2>
 
 	<section class="error" style="display:none">
-		<img src="<?php echo site_url('img/error.png'); ?>" title="<?php echo lang('overal.error'); ?>">
+		<img width="64" height="64" src="<?php echo site_url('img/error.png'); ?>" title="<?php echo lang('overal.error'); ?>">
 		<?php echo lang('search.error'); ?>
 	</section>
 
@@ -51,8 +51,8 @@
 			</div>
 		</div>
 		<div class="submit">
-			<button class="white"><img src="<?php echo site_url('img/search.png'); ?>"><br><?php echo lang('search.search'); ?></button>
-			<img id="loading" title="<?php echo lang('search.loading'); ?>" alt="<?php echo lang('search.loading'); ?>" src="<?php echo site_url('img/loading.gif'); ?>">
+			<button class="white"><img width="24" height="24" src="<?php echo site_url('img/search.png'); ?>"><br><?php echo lang('search.search'); ?></button>
+			<img width="32" height="32" id="loading" title="<?php echo lang('search.loading'); ?>" alt="<?php echo lang('search.loading'); ?>" src="<?php echo site_url('img/loading.gif'); ?>">
 		</div>
 	</form>
 
@@ -69,7 +69,7 @@
 	</section>
 
 	<section class="description">
-		<img title="<?php echo lang('search.desc_img'); ?>" alt="<?php echo lang('search.desc_img'); ?>" src="<?php echo site_url('img/missing.png'); ?>">
+		<img width="128" height="128" title="<?php echo lang('search.desc_img'); ?>" alt="<?php echo lang('search.desc_img'); ?>" src="<?php echo site_url('img/missing.png'); ?>">
 		<p><?php echo lang('search.name'); ?>: <span id="desc_name"></span></p>
 		<p><?php echo lang('search.type'); ?>: <span id="desc_type"></span></p>
 		<p><?php echo lang('search.brand'); ?>: <span id="desc_brand"></span></p>

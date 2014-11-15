@@ -28,9 +28,6 @@ DirectoryIndex index.php
 
 <ifModule mod_headers.c>
 
-	Header unset ETag
-	FileETag None
-
 	<FilesMatch "\.(jpe?g|png|gif|ico|pdf|xml|svg|css|js|ttf|map)$">
 		Header unset Last-Modified
 	</FilesMatch>
@@ -41,13 +38,13 @@ DirectoryIndex index.php
 		Header unset X-UA-Compatible
 	</FilesMatch>
 
-#	<filesMatch "\.(jpe?g|png|gif|ico|pdf|xml|svg|css|js|ttf|map)$">
-#		Header set Cache-Control "max-age=1296000, public"
-#	</filesMatch>
+	<filesMatch "\.(jpe?g|png|gif|ico|pdf|xml|svg|css|js|ttf|map)$">
+		Header set Cache-Control "max-age=1296000, public"
+	</filesMatch>
 
-#	<filesMatch "\.php$">
-#		Header set Cache-Control "max-age=86400, public"
-#	</filesMatch>
+	<filesMatch "\.php$">
+		Header set Cache-Control "max-age=86400, public"
+	</filesMatch>
 
 	<filesMatch "\.(css|js|php|ttf|map)$">
 		AddDefaultCharset UTF-8
