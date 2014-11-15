@@ -4,9 +4,7 @@ class Api extends CI_Controller {
 
 	public function index()
 	{
-		$data['response'] = json_encode(array("message" => "Welcome ".$this->input->post('name')."!"));
-		$this->load->view('api', $data);
-		// TODO
+		show_404("api");
 	}
 
 	public function register()
@@ -35,7 +33,7 @@ class Api extends CI_Controller {
 		}
 		else
 		{
-			redirect('/');
+			show_404("api/login");
 		}
 	}
 
