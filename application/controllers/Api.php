@@ -22,13 +22,14 @@ class Api extends CI_Controller {
 
 	public function login()
 	{
-		if ($this->input->method() === 'post')
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		if ($this->input->method() === 'post' && ! empty($username) && $this->_is_sha1($password))
 		{
 			$this->lang->load('login');
 
-			if (is_null($error = $this->foodweb->check_login(
-						$this->input->post('username'),
-						$this->input->post('password'))))
+			if (is_null($error = $this->foodweb->check_login($username, $password)))
 			{
 				$data['response'] = json_encode(array("status" => "OK", "error" => NULL));
 			}
@@ -79,6 +80,11 @@ class Api extends CI_Controller {
 		{
 			show_404("api/login");
 		}
+	}
+
+	private function _is_sha1($password)
+	{
+		return ! empty($password) && strlen($password) === 40;
 	}
 }
 
