@@ -13,14 +13,14 @@ $(document).ready(function () {
 					$('#desc_desc').html(product.desc);
 					$('#desc_hall').html(product.hall);
 					$('#desc_shelf').html(product.shelf);
-				}
+				};
 
 	$("button").click(function (event) {
 		event.preventDefault();
 
 		$('#loading').show();
 
-		form = $('form').serialize();
+		var form = $('form').serialize();
 
 		results = new Array();
 		$('.search .table .row:not(.void):not(.title)').remove();
