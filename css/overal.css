@@ -1,4 +1,4 @@
-@media (max-width: 520px)
+@media (max-width: 625px)
 {
 	section.main
 	{
@@ -6,20 +6,12 @@
 	}
 }
 
-@media (min-width: 521px)
-{
-	section.main
-	{
-		margin: 3em 5em;
-	}
-}
-
-@media (min-width: 651px)
+@media (min-width: 626px)
 {
 	section.main
 	{
 		margin: 3em auto;
-		width: 500px;
+		width: 600px;
 	}
 }
 
@@ -41,7 +33,7 @@ section.main
 	border-radius: 0.8em;
 	border: 1px solid #000000;
 	background: linear-gradient(#186078, #66C2E0);
-	min-width: 340px;
+	min-width: 500px;
 }
 
 h2
