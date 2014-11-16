@@ -124,8 +124,8 @@ class Api extends CI_Controller {
 		$price_max = is_numeric($this->input->post('price_max')) ? (float) $this->input->post('price_max') : NULL;
 		$this->load->model('user_model', 'user');
 
-		if ($this->input->method() === 'post' && ! empty($name) && is_int($type) &&
-			! empty($brand) && is_float($price_min) && is_float($price_max) &&
+		if ($this->input->method() === 'post' && ! is_null($name) && is_int($type) &&
+			! is_null($brand) && is_float($price_min) && is_float($price_max) &&
 			$price_max >= $price_min && $this->user->exists_username($username))
 		{
 			$this->lang->load('search');
