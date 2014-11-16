@@ -56,6 +56,16 @@ class User_model extends CI_Model {
 		$CI->db->set('confirmation', NULL);
 		$CI->db->update('users');
 	}
+
+	public function exists_username($username)
+	{
+		$CI =& get_instance();
+
+		$CI->db->where('username', $username);
+		$CI->db->from('users');
+
+		return $CI->db->count_all_results() > 0;
+	}
 }
 
 /* End of file User_model.php */

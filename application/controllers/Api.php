@@ -65,6 +65,7 @@ class Api extends CI_Controller {
 			is_bool($gluten) && is_bool($diabetes) && is_bool($vegetables) && is_bool($milk))
 		{
 			$this->lang->load('register');
+			$this->load->model('user_model', 'user');
 			$error = $this->foodweb->register($name, $lastname, $email, $username, $password, $password,
 											$gluten, $diabetes, $vegetables, $milk);
 
@@ -115,9 +116,33 @@ class Api extends CI_Controller {
 
 	public function search()
 	{
-		if ($this->input->method() === 'post')
+		$username = $this->input->post('username');
+		$name = $this->input->post('name');
+		$type = is_numeric($this->input->post('type')) ? (int) $this->input->post('type') : NULL;
+		$brand = $this->input->post('brand');
+		$price_min = is_numeric($this->input->post('price_min')) ? (float) $this->input->post('price_min') : NULL;
+		$price_max = is_numeric($this->input->post('price_max')) ? (float) $this->input->post('price_max') : NULL;
+		$this->load->model('user_model', 'user');
+
+		if ($this->input->method() === 'post' && ! empty($name) && is_int($type) &&
+			! empty($brand) && is_float($price_min) && is_float($price_max) &&
+			$price_max >= $price_min && $this->user->exists_username($username))
 		{
-			// TODO
+			$this->lang->load('search');
+			$this->user->load($username);
+
+			$result = $this->foodweb->search($name, $type, $brand, $price_min, $price_max);
+
+			if (empty($result))
+			{
+				$data['response'] = array("status" => "ERR", "error" => lang('search.error'), "result" => NULL);
+			}
+			else
+			{
+				$data['response'] = array("status" => "OK", "error" => NULL, "result" => $result);
+			}
+
+			$this->load->view('api', $data);
 		}
 		else
 		{

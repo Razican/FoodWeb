@@ -17,6 +17,7 @@ class Register extends CI_Controller {
 		}
 		elseif ($this->input->method() === 'post')
 		{
+			$this->load->model('user_model', 'user');
 			if (is_null($error = $this->foodweb->register(
 						$this->input->post('name'),
 						$this->input->post('lastname'),

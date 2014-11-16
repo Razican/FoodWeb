@@ -36,12 +36,7 @@ class Foodweb {
 			return lang('register.error_email_1');
 		}
 
-		$CI =& get_instance();
-
-		$CI->db->where('username', $username);
-		$CI->db->from('users');
-
-		if ($CI->db->count_all_results())
+		if ($CI->user->exists_user($username))
 		{
 			return lang('register.error_user');
 		}
