@@ -65,7 +65,6 @@ class Api extends CI_Controller {
 			is_bool($gluten) && is_bool($diabetes) && is_bool($vegetables) && is_bool($milk))
 		{
 			$this->lang->load('register');
-			$this->load->model('user_model', 'user');
 			$error = $this->foodweb->register($name, $lastname, $email, $username, $password, $password,
 											$gluten, $diabetes, $vegetables, $milk);
 
