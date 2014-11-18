@@ -153,7 +153,7 @@ class Api extends CI_Controller {
 
 	private function _is_sha1($password)
 	{
-		return ! empty($password) && strlen($password) === 40;
+		return ! empty($password) && preg_match("/\b([a-f0-9]{40})\b/", $password);
 	}
 
 	private function _is_email($email)
