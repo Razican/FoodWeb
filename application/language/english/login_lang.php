@@ -8,7 +8,7 @@ $lang['login.reset_password']	= 'Forgot user/password?';
 $lang['login.username_eg']		= 'Example: user';
 $lang['login.password_eg']		= 'Example: 1234';
 
-$lang['login.error_incorrect']	= 'Incorrect user/password.';
+$lang['login.error_incorrect']	= 'Incorrect user or password.';
 $lang['login.error_empty']		= 'You must fill all the fields.';
 
 

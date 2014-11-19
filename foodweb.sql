@@ -23,11 +23,11 @@ CREATE TABLE IF NOT EXISTS `products` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 INSERT INTO `products` (`id`, `name`, `type`, `brand`, `price`, `description`, `hall`, `shelf`, `gluten`, `diabetes`, `vegetables`, `milk`) VALUES
-(1, 'Pringles', 5, 'Pringles', 255, 'Do you have a taste for something tangy or a craving for a snack with a kick? Explore the cans to uncover your perfect Pringles flavour fit.', 4, 1, 0, 1, 0, 1),
-(2, 'Milk', 4, 'Valio', 115, 'All Valio milk and whey powders are produced from the highest quality raw material – the pure and natural goodness of Finnish milk.', 1, 1, 1, 1, 1, 0),
-(3, 'Lactose-free Milk', 4, 'Valio', 120, 'All Valio milk and whey powders are produced from the highest quality raw material – the pure and natural goodness of Finnish milk.', 1, 2, 1, 1, 1, 1),
+(1, 'Pringles', 5, 'Pringles', 255, 'Potato chips.', 4, 1, 0, 1, 0, 1),
+(2, 'Milk', 4, 'Valio', 115, 'The pure and natural goodness of Finnish milk.', 1, 1, 1, 1, 1, 0),
+(3, 'Lactose-free Milk', 4, 'Valio', 120, 'The pure and natural goodness of Finnish milk.', 1, 2, 1, 1, 1, 1),
 (4, 'Cookies', 5, 'Tasangon', 165, 'Tasangon chocolate cookies 400g', 4, 2, 1, 0, 1, 1),
-(5, 'Chocolate', 5, 'Karl Fazer', 125, 'The Karl Fazer signature has been the sign of Fazer quality since 1891, enjoy the taste of Fazer tradition in this unique milk chocolate made with fresh milk.', 4, 2, 1, 0, 1, 0),
+(5, 'Chocolate', 5, 'Karl Fazer', 125, 'Milk chocolate made with fresh milk.', 4, 2, 1, 0, 1, 0),
 (6, 'Pork meat', 2, 'Dia', 199, 'Best pork meat from Spain.', 2, 1, 1, 1, 1, 1),
 (7, 'Onion', 0, 'Dia', 100, 'Little onions for salads', 3, 1, 1, 1, 0, 1),
 (8, 'Beer', 4, 'Koff', 102, '33cl beer can', 1, 1, 0, 1, 1, 1),
