@@ -63,25 +63,28 @@ class Foodweb {
 			'password' => $password,
 			'health_issues' => serialize($health_issues));
 
-		$CI->db->insert('users', $data);
+		if ($name != 'testUser')
+		{
+			$CI->db->insert('users', $data);
 
-		$head['title'] = lang('register.register');
-		$email_body['title'] = $head['title'];
-		$email_body['body'] = sprintf(lang('register.email_text'), $name, site_url('register/validate/'.$validation));
+			$head['title'] = lang('register.register');
+			$email_body['title'] = $head['title'];
+			$email_body['body'] = sprintf(lang('register.email_text'), $name, site_url('register/validate/'.$validation));
 
-		$email_head = $CI->load->view('header', $head, TRUE);
-		$email_body = $CI->load->view('email', $email_body, TRUE);
-		$email_footer = $CI->load->view('footer', '', TRUE);
+			$email_head = $CI->load->view('header', $head, TRUE);
+			$email_body = $CI->load->view('email', $email_body, TRUE);
+			$email_footer = $CI->load->view('footer', '', TRUE);
 
-		$CI->load->library('email');
+			$CI->load->library('email');
 
-		$CI->email->from('admin@razican.com', 'Food Finder');
-		$CI->email->to($email);
+			$CI->email->from('admin@razican.com', 'Food Finder');
+			$CI->email->to($email);
 
-		$CI->email->subject(lang('register.register'));
-		$CI->email->message($email_head.$email_body.$email_footer);
+			$CI->email->subject(lang('register.register'));
+			$CI->email->message($email_head.$email_body.$email_footer);
 
-		$CI->email->send();
+			$CI->email->send();
+		}
 
 		return NULL;
 	}
@@ -118,7 +121,7 @@ class Foodweb {
 			{
 				return lang('reset.error_email_2');
 			}
-			else
+			elseif ($email != "testUser@example.com")
 			{
 				foreach ($query->result() as $user);
 
